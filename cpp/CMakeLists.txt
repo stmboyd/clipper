@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 PROJECT(polyclipping)
 
 SET(CMAKE_BUILD_TYPE "Release" CACHE STRING "Release type")
@@ -15,6 +15,8 @@ IF(BUILD_SHARED_LIBS)
 ELSE()
     ADD_LIBRARY(polyclipping STATIC clipper.cpp)
 ENDIF()
+
+TARGET_COMPILE_OPTIONS(polyclipping PUBLIC -w)
 
 CONFIGURE_FILE (polyclipping.pc.cmakein "${PCFILE}" @ONLY)
 
